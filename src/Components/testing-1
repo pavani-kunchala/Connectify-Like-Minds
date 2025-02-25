@@ -1,0 +1,294 @@
+import React, { useState, useEffect } from 'react';
+import { Navbar, Button, Container, Nav, Form, Dropdown, Card, Carousel } from 'react-bootstrap';
+import { IoMdContact } from "react-icons/io";
+import { Link, Element, animateScroll as scroll } from 'react-scroll';
+import './Home.css';
+import About from './About';
+import Services from './Services';
+import group1 from "../Images/study.png";
+import c0 from '../Images/ca1.png';
+import c2 from '../Images/ca2.png';
+import c3 from '../Images/ca3.png';
+import ca1 from '../Images/ml1.jpg';
+import ca2 from '../Images/images.jpeg';
+import ca3 from '../Images/java.cms';
+import ca4 from '../Images/AI.webp';
+import ca5 from '../Images/reactjs.jpg';
+import ca6 from '../Images/c.jpeg';
+import ca7 from '../Images/spring.png';
+import ca8 from '../Images/full.webp';
+
+function Home() {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [userId, setUserId] = useState('');
+  const [isMobile, setIsMobile] = useState(false); // State to track mobile view
+
+  useEffect(() => {
+    const storedUserId = localStorage.getItem('userId');
+    if (storedUserId) {
+      setUserId(storedUserId);
+    }
+    // Check if the window width is less than 768px (Bootstrap sm breakpoint)
+    setIsMobile(window.innerWidth < 768);
+    // Listen to resize events to update isMobile state
+    window.addEventListener('resize', () => {
+      setIsMobile(window.innerWidth < 768);
+    });
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', () => {
+        setIsMobile(window.innerWidth < 768);
+      });
+    };
+  }, []);
+
+  const handleMouseEnter = () => {
+    setShowDropdown(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowDropdown(false);
+  };
+
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleMouseEnter = () => {
+    setShowDropdown(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowDropdown(false);
+  };
+
+  return (
+    <div className="home-container">
+      <Navbar expand="sm" className="custom-navbar" bg="dark" variant="dark">
+        <Container fluid>
+          <Navbar.Brand as={Link} to="/" className="navbar-brand">
+            Connectify
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }}>
+              <Nav.Link as={Link} to="/" className="nav-link">
+                Home
+              </Nav.Link>
+              <Nav.Link as={Link} to="/about" className="nav-link">
+                About
+              </Nav.Link>
+              <Nav.Link as={Link} to="/services" className="nav-link">
+                Services
+              </Nav.Link>
+              <Nav.Link href="Domain" className="nav-link">
+                Courses
+              </Nav.Link>
+              <Nav.Link href="register" className="nav-link">
+                Groups
+              </Nav.Link>
+              <Nav.Link href="#proofs" className="nav-link">
+                Quizzes
+              </Nav.Link>
+            </Nav>
+            <Form className="d-flex">
+              <div className="search-container me-3">
+                <Form.Control
+                  type="search"
+                  placeholder="What do you want to learn"
+                  aria-label="Search"
+                  className="search-input"
+                  style={{ width: '250px', height: '40px' }}
+                />
+              </div>
+              <Dropdown
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                show={showDropdown}
+                className="profile-dropdown"
+              >
+                <Dropdown.Toggle
+                  variant="secondary"
+                  id="dropdown-profile"
+                  style={{ backgroundColor: 'transparent', border: 'none' }}
+                >
+                  <IoMdContact size="30px" style={{ marginBottom: '-8px', marginRight: '5px', color: 'rgb(14, 93, 182)' }} />
+                  <span className="profile-text">Profile</span>
+                </Dropdown.Toggle>
+                <Dropdown.Menu className='dropdown-menu'>
+                  <Dropdown.Item href="#edit">Edit Profile</Dropdown.Item>
+                  <Dropdown.Item href="uipage">Logout</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      {/* <Element name="home row">
+        <div className="col-md-6 para">
+          <h1 variant="dark" className='c' style={{ fontSize: '50px', color: 'black' }}>Connectify Like Minds</h1>
+          <p>
+            Connect with like-minded individuals and form study groups based on your interests and goals. Share resources, exchange ideas, and tackle challenging topics as a cohesive team.
+          </p>
+          <form>
+            <Button className='button1' style={{ fontSize: '30px' }} href="domain">Get Started</Button>
+          </form>
+        </div>
+        <img src={group1} alt="soory" className='img1' />
+      </Element> */}
+      <Element className="home row">
+        <div className="col-md-5 para">
+          <div className='para-child'>
+            <h1 variant="dark" className='home-header'>Connectify Like Minds</h1>
+            <p>
+              Connect with like-minded individuals and form study groups based on your interests and goals. Share resources, exchange ideas, and tackle challenging topics as a cohesive team.
+            </p>
+            <form>
+              <Button className='button1' href="domain">Get Started</Button>
+            </form>
+          </div>
+        </div>
+        <div className="col-md-5 img1 mb-4">
+          <img src={group1} alt="soory" className='' />
+        </div>
+      </Element>
+
+      <Carousel className='mt-4' interval={1000}>
+        <Carousel.Item>
+          <img
+            className="d-block w-100  carousel"
+            src={c0}
+            alt="First slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100  carousel"
+            src={c2}
+            alt="Second slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100  carousel"
+            src={c3}
+            alt="Third slide"
+          />
+        </Carousel.Item>
+      </Carousel>
+
+      <div className='para2'>
+        <p>Most Trending Domains</p>
+      </div>
+      <div className='most-trending-domains-card'>
+        <Card className='cards'>
+          <Card.Img variant="top" src={ca1} />
+          <Card.Body>
+            <Button variant="primary">View Course</Button>
+          </Card.Body>
+        </Card>
+        <Card className='cards'>
+          <Card.Img variant="top" src={ca2} />
+          <Card.Body>
+            <Button href="/pythoncourse" variant="primary">View Course</Button>
+          </Card.Body>
+        </Card>
+        <Card className='cards'>
+          <Card.Img variant="top" src={ca3} />
+          <Card.Body>
+            <Button variant="primary">View Course</Button>
+          </Card.Body>
+        </Card>
+        <Card className='cards'>
+          <Card.Img variant="top" src={ca4} />
+          <Card.Body>
+            <Button variant="primary">View Course</Button>
+          </Card.Body>
+        </Card>
+        <Card className='cards'>
+          <Card.Img variant="top" src={ca5} />
+          <Card.Body>
+            <Button variant="primary">View Course</Button>
+          </Card.Body>
+        </Card>
+        <Card className='cards'>
+          <Card.Img variant="top" src={ca6} />
+          <Card.Body>
+            <Button variant="primary">View Course</Button>
+          </Card.Body>
+        </Card>
+        <Card className='cards'>
+          <Card.Img variant="top" src={ca7} />
+          <Card.Body>
+            <Button variant="primary">View Course</Button>
+          </Card.Body>
+        </Card>
+        <Card className='cards'>
+          <Card.Img variant="top" src={ca8} />
+          <Card.Body>
+            <Button variant="primary">View Course</Button>
+          </Card.Body>
+        </Card>
+      </div>
+
+      <Element name="about">
+        <About />
+      </Element>
+
+      <Element name="services">
+        <header className="services-header">
+          <h1>Our Services</h1>
+          <p>Discover what Connectify has to offer</p>
+        </header>
+        <Services />
+      </Element>
+
+      <footer className="footer bg-dark text-white py-5" style={{ marginTop: '20px' }}>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4">
+              <h2 className="logo"><b>C</b>onnectify</h2>
+              <p>
+                Connectify is a platform where like-minded individuals come together to learn, collaborate, and grow.
+              </p>
+              <div className="contact">
+                <span><i className="fas fa-phone"></i> +1234567890</span>
+                <span><i className="fas fa-envelope"></i> info@connectify.com</span>
+              </div>
+              <div className="socials">
+                <a href="/home"><i className="fab fa-facebook"></i></a>
+                <a href="/home"><i className="fab fa-twitter"></i></a>
+                <a href="/home"><i className="fab fa-instagram"></i></a>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <h2>Quick Links</h2>
+              <ul className="list-unstyled">
+                <li><a href="#home" onClick={() => scroll.scrollToTop()}>Home</a></li>
+                <li><a href="#about" onClick={() => scroll.scrollTo('about')}>About</a></li>
+                <li><a href="#services" onClick={() => scroll.scrollTo('services')}>Services</a></li>
+                <li><a href="#contact" onClick={() => scroll.scrollTo('contact')}>Contact</a></li>
+              </ul>
+            </div>
+            <div className="col-md-4">
+              <h2>Contact Us</h2>
+              <form>
+                <div className="mb-3">
+                  <input type="email" name="email" className="form-control" placeholder="Your Email" />
+                </div>
+                <div className="mb-3">
+                  <textarea name="message" className="form-control" placeholder="Message" rows="4"></textarea>
+                </div>
+                <div>
+                  <Button type="submit" className="btn btn-outline-light">Submit</Button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+export default Home;
+

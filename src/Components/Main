@@ -1,0 +1,115 @@
+import java.util.HashMap;
+import java.util.Map;
+
+// User class represents a user of the system
+class User {
+    private String username;
+    private String password;
+    // Other user attributes like name, email, etc.
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+        // Initialize other user attributes
+    }
+
+    // Getters and setters for user attributes
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+}
+
+// FeeSystem class manages the fee query system
+class FeeSystem {
+    private Map<String, User> users;
+    private Map<String, FeeStatement> feeStatements;
+    private Map<String, Double> feePayments;
+
+    public FeeSystem() {
+        this.users = new HashMap<>();
+        this.feeStatements = new HashMap<>();
+        this.feePayments = new HashMap<>();
+    }
+
+    // Method to add a user to the system
+    public void addUser(User user) {
+        users.put(user.getUsername(), user);
+    }
+
+    // Method to authenticate user credentials
+    public boolean authenticateUser(String username, String password) {
+        User user = users.get(username);
+        return user != null && user.getPassword().equals(password);
+    }
+
+    // Method to generate fee statement for a student
+    public void generateFeeStatement(String studentId) {
+        // Generate fee statement for the student and store it in the feeStatements map
+        FeeStatement feeStatement = new FeeStatement(studentId);
+        feeStatements.put(studentId, feeStatement);
+    }
+
+    // Method to make payment for a student
+    public void makePayment(String studentId, double amount) {
+        // Update fee payments for the student
+        double currentPayment = feePayments.getOrDefault(studentId, 0.0);
+        feePayments.put(studentId, currentPayment + amount);
+    }
+
+    // Method to send notifications to students about fee due dates
+    public void sendNotification(String studentId, String message) {
+        // Send notification
+        System.out.println("Notification sent to student " + studentId + ": " + message);
+    }
+
+    // Method to apply for financial aid for a student
+    public void applyForFinancialAid(String studentId, Map<String, String> details) {
+        // Process financial aid application
+    }
+
+    // Method to provide helpdesk support for fee-related issues and technical queries
+    public void helpdeskSupport(String issue) {
+        // Provide assistance
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Example usage of the fee system
+        FeeSystem feeSystem = new FeeSystem();
+
+        // Add users to the system
+        User user1 = new User("username1", "password1");
+        feeSystem.addUser(user1);
+
+        // Authenticate user
+        boolean authenticated = feeSystem.authenticateUser("username1", "password1");
+        if (authenticated) {
+            System.out.println("Authentication successful");
+        } else {
+            System.out.println("Authentication failed");
+        }
+
+        // Generate fee statement
+        feeSystem.generateFeeStatement("student123");
+        System.out.println("Fee statement generated successfully");
+
+        // Make payment
+        feeSystem.makePayment("student123", 1000);
+        System.out.println("Payment made successfully");
+
+        // Send notification
+        feeSystem.sendNotification("student123", "Reminder: Your fee is due soon");
+
+        // Apply for financial aid
+        feeSystem.applyForFinancialAid("student123", new HashMap<>());
+
+        // Helpdesk support
+        feeSystem.helpdeskSupport("Issue description");
+    }
+}

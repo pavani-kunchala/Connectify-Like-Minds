@@ -1,0 +1,172 @@
+.ui-page-container {
+    display: flex;
+    justify-content: center; /* Center the content */
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+    color: #06172a; /* Default text color */
+    overflow: hidden; /* Prevent horizontal scroll */
+  }
+  
+  .ui-content {
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping for responsiveness */
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px; /* Add padding for spacing */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+  }
+  
+  .left-section {
+    flex: 1 1 50%; /* Flex-grow, flex-shrink, flex-basis */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -80px; /* Move image slightly to the left */
+  }
+  
+  .study-image {
+    max-width: 100%;
+    height: 500px; /* Reduce height to give more space */
+    width: 600px; /* Reduce width to give more space */
+    border-radius: 8px;
+    margin-left: 20px; /* Move image slightly to the right */
+  }
+  
+  .right-section {
+    flex: 1 1 50%; /* Flex-grow, flex-shrink, flex-basis */
+    padding: 20px;
+    text-align: left; /* Align text to left within right section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+  }
+  
+  .title {
+    white-space: nowrap;
+    color: black; /* Set title color to black */
+    font-size: 50px; /* Adjust font size to fit better */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .features {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    color: rgb(46, 46, 46); /* Set features color to dark gray */
+  }
+  
+  .features.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .features h3 {
+    font-size: 30px; /* Increase font size */
+    color: #000080; /* Set color to navy blue */
+  }
+  
+  .features ul {
+    list-style-type: none; /* Remove bullet dots */
+    padding-left: 0; /* Remove padding */
+  }
+  
+  .features ul li {
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .features ul li.animate-from-left {
+    animation: slideFromLeft 1s ease forwards;
+  }
+  
+  .features ul li.animate-from-right {
+    animation: slideFromRight 1s ease forwards;
+  }
+  
+  @keyframes slideFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideFromRight {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .feature-info {
+    margin: 5px 0 15px 20px; /* Add margin for spacing */
+    font-size: 14px; /* Smaller font size for additional info */
+    color: #333; /* Dark gray color for additional info */
+  }
+  
+  .login-button {
+    background-color: rgb(6, 6, 61); /* Dark blue background */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    align-self: flex-start; /* Align button to the start of the flex container */
+  }
+  
+  .login-button.expand {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .login-button:hover {
+    background-color: #2664e0; /* Lighter blue on hover */
+    color: black;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .ui-content {
+      flex-direction: column; /* Stack sections vertically */
+      align-items: center;
+    }
+  
+    .left-section, .right-section {
+      flex: 1 1 100%;
+      margin: 0;
+    }
+  
+    .study-image {
+      width: 100%; /* Make the image responsive */
+      height: auto;
+      margin-right: 0; /* Remove right margin */
+      left:30px;
+    }
+  
+    .title {
+      font-size: 2rem; /* Adjust font size for smaller screens */
+      text-align: center; /* Center align text */
+    }
+  
+    .features h3 {
+      font-size: 1.5rem; /* Adjust font size for smaller screens */
+    }
+  
+    .login-button {
+      font-size: 1.2rem; /* Adjust font size for smaller screens */
+    }
+  }
+  

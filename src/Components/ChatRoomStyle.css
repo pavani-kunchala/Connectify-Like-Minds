@@ -1,0 +1,245 @@
+ 
+/* Username Modal */
+#username-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+#username-modal div {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);        
+}
+
+#username-modal .username-inp {
+  display: flex;                 
+  justify-content: space-between;  
+  align-items: center;         
+}
+
+#username-modal input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex-grow: 1;   
+  margin-right: 10px;  
+  border: 1px solid #00bfae; 
+}
+
+/* Focus effect on input field */
+#username-modal input:focus {
+  border-color: #00bfae;  
+  box-shadow: 0 0 12px rgba(0, 191, 174, 0.6);  
+}
+
+#username-modal button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #00bfae;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#username-modal button:hover {
+  background-color: #00bfae;  
+  transform: scale(1.08);  
+  border-color: #00bfae;  
+  box-shadow: 0 0 12px rgba(0, 191, 174, 0.6);
+}
+
+/* Chat Room Container */
+.chat-room-container {
+  width: 60vw;
+  height: 80vh; 
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  justify-content: center;  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  
+}
+
+/* Header */
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Space between h1 and logout button */
+  align-items: center; /* Center vertically */
+  margin-bottom: 20px;
+  background-color: #00bfae;
+  padding: 15px;
+  border-radius: 20px 20px 0 0; /* Rounded top corners */
+  width: 100%;
+}
+
+h1 {
+  font-size: 2rem;
+  color:white;
+  font-weight: bold;
+  margin: 0;  
+}
+
+/* Logout Button */
+.logout-button {
+  background-color: #ff4d4d; 
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50px;  
+  cursor: pointer;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.logout-button:hover {
+  background-color: #ff1a1a; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);  
+  transform: scale(1.05);   
+}
+
+/* Message Area */
+#messages {
+  flex-grow: 1;
+  height: 40vh; 
+  padding: 15px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+/* Individual Messages */
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  width: 100%;  
+}
+
+.message.sent {
+  justify-content: flex-end;
+}
+
+.message.received {
+  justify-content: flex-start;
+}
+
+.username {
+  font-weight: bold;
+  margin-right: 8px;
+  color: #007bff;
+}
+
+.sent-username {
+  font-weight: bold;
+  color: #007bff;
+  margin-left: 8px;     
+}
+
+.content {
+  background-color: #f1f1f1;
+  padding: 8px 12px;
+  border-radius: 15px;
+  max-width: 75%;
+  word-wrap: break-word;
+  font-size: 1rem;
+}
+
+.message.sent .content {
+  background-color: #c0f0cc;
+  margin-left: 15%;
+}
+
+.message.received .content {
+  background-color: #e8e8e8;
+  margin-right: 15%;
+}
+
+/* Message Form */
+#form1 {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  width: 100%;
+  justify-content: center;  
+}
+
+#form1 input {
+  width: 80%;  
+  padding: 12px;
+  border: 1px solid #00bfae;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+#form1 input:focus {
+  border-color: #00bfae;  
+  box-shadow: 0 0 12px rgba(0, 191, 174, 0.6); 
+}
+
+#send-button {
+  background-color: #00bfae;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+#send-button:hover {
+  background-color: #00bfae;  
+  transform: scale(1.08); 
+  border-color: #00bfae;  
+  box-shadow: 0 0 12px rgba(0, 191, 174, 0.6);
+} 
+
+/* Responsive Design */
+@media (max-width: 850px) {
+  h1 {
+    font-size: 1.5rem;
+    color:white;
+    font-weight: bold;
+    margin: 0;  
+  }
+  .chat-room-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  #form1 input {
+    font-size: 0.9rem;
+  }
+
+  #send-button {
+    font-size: 1rem;
+  }
+
+  .logout-button {
+    font-size: 0.9rem;
+  }
+}
+ 

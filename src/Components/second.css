@@ -1,0 +1,55 @@
+/* second.css */
+form {
+  margin-top: 100px;
+}
+
+.container2 {
+  width: 400px; 
+ 
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid blue;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.container2 label {
+  display: block;
+  margin-bottom: 10px;
+ text-align: start;
+}
+
+.container2 input,
+.container2 select {
+  width: 100%; /* Make inputs and selects fill the container width */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.container2 select {
+  background-color: #f9f9f9;
+}
+
+.container2 button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.container2 button:hover {
+  background-color: #0056b3;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 768px) {
+  .container2 {
+    max-width: 600px; /* Increase maximum width for larger screens */
+  }
+}

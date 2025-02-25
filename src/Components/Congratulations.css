@@ -1,0 +1,56 @@
+
+  .cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+ .h1 {
+    color: #4CAF50; /* Green color */
+  }
+  
+  .cp {
+    color: #2a76ad;
+  }
+  
+  .confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #333; /* Darker color */
+    animation: confetti-fall linear 2s infinite;
+    opacity: 1; /* Initially hide confetti */
+  }
+  
+  .confetti.blue {
+    background-color: #2196F3; /* Blue color */
+  }
+  
+  .confetti.green {
+    background-color: #4CAF50; /* Green color */
+  }
+  
+  @keyframes confetti-fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+  }
+  
+  /* Responsive styles for smaller screens */
+  @media screen and (max-width: 768px) {
+    .cont {
+        padding: 10px;
+    }
+  }

@@ -1,0 +1,139 @@
+/* General styles */
+.services-container {
+    padding: 40px 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+  }
+  
+  .services-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .services-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .services-header p {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
+  .services-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .service-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 300px;
+    max-width: 300px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    row-gap: 10px;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .service-icon {
+    font-size: 2.5em;
+    color: #7181a5;
+    margin-bottom: 15px;
+    align-items: center;
+    margin-left: 110px;
+    
+  }
+  
+  .service-card h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .service-card p {
+    font-size: 1em;
+    color: #666;
+  }
+  
+  .service-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    color: #666;
+  }
+  
+  .service-card ul li {
+    margin: 5px 0;
+  }
+  
+  .learn-more {
+    background-color:#1a5ae6;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .learn-more:hover {
+    background-color: #ff7200;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .services-header h1 {
+      font-size: 2em;
+    }
+  
+    .services-header p {
+      font-size: 1em;
+    }
+  
+    .service-card h2 {
+      font-size: 1.3em;
+    }
+  
+    .service-card p {
+      font-size: 0.9em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .services-container {
+      padding: 20px 10px;
+    }
+  
+    .services-header h1 {
+      font-size: 1.8em;
+    }
+  
+    .services-header p {
+      font-size: 0.9em;
+    }
+  
+    .service-card {
+      padding: 10px;
+      max-width: 100%;
+    }
+  
+    .service-card h2 {
+      font-size: 1em;
+    }
+  
+    .service-card p {
+      font-size: 0.8em;
+    }
+  }

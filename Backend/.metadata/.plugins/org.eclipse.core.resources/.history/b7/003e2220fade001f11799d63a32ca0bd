@@ -1,0 +1,95 @@
+package com.example.democonnectify.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.example.democonnectify.entity.Connectifyusers;
+import com.example.democonnectify.entity.Pythonpeople;
+import com.example.democonnectify.repo.LoginRepo;
+import com.example.democonnectify.service.Pythonservice;
+
+@Controller
+@RequestMapping("/connectifyusers")
+@CrossOrigin
+public class Homecontroller {
+
+    @Autowired
+    private LoginRepo repo;
+
+    @Autowired
+    private Pythonservice pythonservice;
+
+
+    @PostMapping("/add")
+    public ResponseEntity<Pythonpeople> add(@RequestBody Pythonpeople pythonpeople) {
+        Pythonpeople savedPythonpeople = pythonservice.savepythonpeople(pythonpeople);
+        return ResponseEntity.ok(savedPythonpeople);
+    }
+    
+     @RequestMapping("home")
+    public String home() {
+        return "home";
+    }
+
+    @PostMapping("connectifytable")
+    public ModelAndView connectifytable(@RequestParam String id, @RequestParam String password) {
+        ModelAndView mv = new ModelAndView("userdetails");
+        Connectifyusers user = repo.findById(id).orElse(null);
+        if (user != null && user.getPassword().equals(password)) {
+            // Add any necessary attributes to the model view here
+            mv.addObject("user", user);
+            return mv;
+        } else {
+            return new ModelAndView("home");
+        }
+    }
+
+    @RequestMapping("/Connectifyusers")
+    @ResponseBody
+    public String userdetails() {
+        Iterable<Connectifyusers> users = repo.findAll();
+        StringBuilder result = new StringBuilder();
+        for (Connectifyusers user : users) {
+            result.append("User ID: ").append(user.getId()).append(", Name: ").append(user.getName())
+                    .append(", Password: ").append(user.getPassword()).append("\n");
+        }
+        return result.toString();
+    }
+
+    @RequestMapping("/Connectifyusers/n190046")
+    @ResponseBody
+    public String userdetails1() {
+        // Assuming "n190046" is a hardcoded example for demonstration
+        // You can change this to dynamically retrieve a specific user based on your logic
+        Optional<Connectifyusers> users = repo.findById("n190046");
+        if (users.isPresent()) {
+            Connectifyusers user = users.get();
+            return "User ID: " + user.getId() + ", Name: " + user.getName() + ", Password: " + user.getPassword();
+        } else {
+            return "User with ID n190046 not found";
+        }
+    }
+
+    @RequestMapping("/Connectifyusers/{userId}")
+    @ResponseBody
+    public String userdetailsById(@PathVariable("userId") String userId) {
+        Optional<Connectifyusers> optionalUser = repo.findById(userId);
+
+        if (optionalUser.isPresent()) {
+            Connectifyusers user = optionalUser.get();
+            return "User ID: " + user.getId() + ", Name: " + user.getName() + ", Password: " + user.getPassword();
+        } else {
+            return "User with ID " + userId + " not found";
+        }
+    }
+}
