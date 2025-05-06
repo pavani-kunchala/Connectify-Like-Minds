@@ -1,0 +1,34 @@
+npm start
+node server.js
+
+
+ipconfig
+http://10.4.1.234:3000
+ChatRoom.js
+
+
+
+
+
+
+git init
+git add .
+git commit -m "description"
+
+git remote remove origin // if already any have
+
+git remote add origin https://github.com/pavani-kunchala/Connectify-Like-Minds.git
+
+//if another account credentials have{
+Open Windows Credential Manager:
+
+Press Start, search for Credential Manager, and open it.
+
+Go to the "Windows Credentials" tab.
+
+Look for any entries labeled git: or github.com.
+
+Click Remove for those entries.
+}
+
+git push -u origin main 
