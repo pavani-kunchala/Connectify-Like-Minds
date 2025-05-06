@@ -1,53 +1,90 @@
-// server.js
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
-const cors = require('cors'); // Import the CORS package
+const cors = require('cors');
+const db = require('./db'); // Import the MySQL connection
 
-// Initialize express and create an HTTP server
 const app = express();
 const server = http.createServer(app);
-
-// Enable CORS for all routes
-app.use(cors({
-  origin: 'http://localhost:3000', // Allow only requests from localhost:3000
-  methods: ['GET', 'POST'],        // Allowed HTTP methods
-}));
-
-// Initialize socket.io on the server
+/*
 const io = socketIo(server, {
   cors: {
-    origin: 'http://localhost:3000',  // Allow connections from your frontend
+    origin:  '*'  , // Allow frontend connection 'http://localhost:3000'  '*'
     methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
-    credentials: true,
+     
   },
 });
 
+app.use(cors());*/
 
+const io = socketIo(server, {
+  cors: {
+    origin: "*",  // Allow all origins
+    methods: ["GET", "POST"],
+    credentials: true  // Allow cookies & headers
+  },
+});
 
-// Serve the frontend (you can replace this part with your React app if you want)
-app.use(express.static('public'));
+app.use(cors({ origin: "*", credentials: true }));
 
-// Listen for new connections from clients
+app.use(express.json());
+
+// Store messages in MySQL
+const saveMessage = (username, message, room) => {
+  const query = 'INSERT INTO messages (username, message, room, timestamp) VALUES (?, ?, ?, NOW())';
+  db.query(query, [username, message, room], (err) => {
+    if (err) {
+      console.error('Error saving message:', err);
+    }
+  });
+};
+
+// Fetch messages from MySQL
+app.get('/messages', (req, res) => {
+  const { room } = req.query;
+  const query = 'SELECT * FROM messages WHERE room = ? ORDER BY timestamp ASC';
+
+  db.query(query, [room], (err, results) => {
+    if (err) {
+      console.error('Error fetching messages:', err);
+      res.status(500).json({ error: 'Database error' });
+    } else {
+      res.json(results);
+    }
+  });
+});
+ 
+
+// Handle socket connections
 io.on('connection', (socket) => {
   console.log('A user connected');
-  
-  // Listen for the 'chat message' event from the frontend
+
+  socket.on('join room', (room) => {
+    socket.join(room);
+    console.log(`User joined room: ${room}`);
+  });
+
   socket.on('chat message', (data) => {
-    console.log('Received message:', data);
-    
-    // Emit the message to all connected clients
-    io.emit('chat message', data);
+    const { username, message, room } = data;
+    saveMessage(username, message, room); // Save to MySQL
+    io.to(room).emit('chat message', data); // Send message to room
   });
 
-  // Handle user disconnecting
   socket.on('disconnect', () => {
-    console.log('A user disconnected');
+    console.log('User disconnected');
   });
 });
 
-// Start the server on port 5000
-server.listen(5000, () => {
-  console.log('Server is running on http://localhost:5000');
+/*// Start server
+const PORT = 5000;
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+}); */
+
+// Start server and listen on all network interfaces
+const PORT = 5000;
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
 });
+
+ 

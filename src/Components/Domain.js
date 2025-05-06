@@ -15,9 +15,9 @@ function Domain() {
             <Card.Body className="card-text">
               <Card.Title>Introduction to Python Programming</Card.Title>
               <Card.Text>
-                Learn the basics of Python programming language,Popular and Easy to learn
+                Learn the basics of Python programming language, Popular and Easy to learn.
               </Card.Text>
-              <Button variant="primary" href="/pythoncourse">View course</Button>
+              <Button variant="primary" href="/python">View course</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -27,9 +27,9 @@ function Domain() {
             <Card.Body>
               <Card.Title>C Programming Basics</Card.Title>
               <Card.Text>
-                Introduction to the C programming language for system programming and application development.'
+                Introduction to the C programming language for system programming and application development.
               </Card.Text>
-              <Button variant="primary" href="croadmap">View course</Button>
+              <Button variant="primary" href="c">View course</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -39,9 +39,9 @@ function Domain() {
             <Card.Body>
               <Card.Title>C++ Programming Fundamentals</Card.Title>
               <Card.Text>
-                Get started with C++ programming language, covering basic syntax and object-oriented concepts 
+                Get started with C++ programming language, covering basic syntax and object-oriented concepts.
               </Card.Text>
-              <Button href="CPlusPlusCourse" variant="primary">View Course</Button>
+              <Button href="cplusplus" variant="primary">View Course</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -53,7 +53,7 @@ function Domain() {
               <Card.Text>
                 Learn the basics of Java programming language and object-oriented programming concepts.
               </Card.Text>
-              <Button href="/Javacourse" variant="primary">View Course</Button>
+              <Button href="/java" variant="primary">View Course</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -65,9 +65,9 @@ function Domain() {
             <Card.Body>
               <Card.Title>Machine Learning Essentials</Card.Title>
               <Card.Text>
-              Explore the fundamentals of machine learning and data science
+              Explore the fundamentals of machine learning and data science.
                </Card.Text>
-              <Button href="/MachineLearningcourse" variant="primary">View Course</Button>
+              <Button href="/machinelearning" variant="primary">View Course</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -77,9 +77,9 @@ function Domain() {
             <Card.Body>
               <Card.Title>Artificial Intelligence Fundamentals</Card.Title>
               <Card.Text>
-              Introduction to Artificial Intelligence concepts, algorithms, and applications
+              Introduction to Artificial Intelligence concepts, algorithms, and applications.
                </Card.Text>
-              <Button href="/AICourse" variant="primary">View Course</Button>
+              <Button href="/ai" variant="primary">View Course</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -91,7 +91,7 @@ function Domain() {
               <Card.Text>
               Dive deeper into fundamental data structures and algorithms for problem-solving.
                </Card.Text>
-              <Button href="/DSACourse" variant="primary">View Course</Button>
+              <Button href="/dsa" variant="primary">View Course</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -99,11 +99,11 @@ function Domain() {
           <Card className="h-100">
             <Card.Img variant="top" src="nlp.jpg" className="card-img" />
             <Card.Body>
-              <Card.Title>Natural Language Processing (NLP) with Python'</Card.Title>
+              <Card.Title>Natural Language Processing (NLP) with Python</Card.Title>
               <Card.Text>
               Explore NLP techniques and libraries in Python for text analysis and natural language understanding.
                </Card.Text>
-              <Button href="/NLPCourse" variant="primary">View Course</Button>
+              <Button href="/nlp" variant="primary">View Course</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -117,7 +117,7 @@ function Domain() {
               <Card.Text>
               Get started with ReactJS to build dynamic, interactive user interfaces.
                </Card.Text>
-              <Button href="/ReactJSCourse" variant="primary">View Course</Button>
+              <Button href="/reactjs" variant="primary">View Course</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -129,7 +129,7 @@ function Domain() {
               <Card.Text>
               Learn about DevOps principles, tools, and practices for software development and deployment.
                </Card.Text>
-              <Button href="/DevOpsCourse" variant="primary">View Course</Button>
+              <Button href="/devops" variant="primary">View Course</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -139,9 +139,9 @@ function Domain() {
             <Card.Body>
               <Card.Title>Web Development </Card.Title>
               <Card.Text>
-              Get started with HTML, CSS, and JavaScript for web development
+              Get started with HTML, CSS, and JavaScript for web development.
                </Card.Text>
-              <Button href="/WebDevelopmentCourse" variant="primary">View Course</Button>
+              <Button href="/webdevelopment" variant="primary">View Course</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -153,7 +153,7 @@ function Domain() {
               <Card.Text>
               Become proficient in Backend web development using Spring Boot.
                </Card.Text>
-              <Button href="/SpringCourse" variant="primary">View Course</Button>
+              <Button href="/springboot" variant="primary">View Course</Button>
             </Card.Body>
           </Card>
         </Col>

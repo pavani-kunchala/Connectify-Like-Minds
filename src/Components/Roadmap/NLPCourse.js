@@ -1,15 +1,18 @@
 import React from 'react';
 import Structure from '../roadmapstructure';
 import '../roadmapstyle.css';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 const NLPCourse = () => {
     return (
         <div>
-            <div className="fixed-button-container">
-                <button className="fixed-button"><Link to="/register">Join Group</Link></button>
-            </div>
+            {/* <div className="fixed-button-container">
+                            <button className="fixed-button"><Link to="/register">Join Group</Link></button>
+                        </div>
+            */}
+            
             <Structure 
+                room="nlp"
                 step1="Introduction to Natural Language Processing" 
                 step2="Text Preprocessing (Tokenization, Lemmatization, Stop Words)"
                 step3="Bag of Words and TF-IDF"

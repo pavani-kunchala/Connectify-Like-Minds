@@ -1,15 +1,18 @@
 import React from 'react';
 import Structure from '../roadmapstructure';
 import '../roadmapstyle.css';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
  
 const MachineLearningcourse = () => {
     return (
         <div>
-            <div className="fixed-button-container">
-                <button className="fixed-button"><Link to="/register">Join Group</Link></button>
-            </div>
+             {/* <div className="fixed-button-container">
+                            <button className="fixed-button"><Link to="/register">Join Group</Link></button>
+                        </div>
+            */}
+            
             <Structure 
+                room="machinelearning"
                 step1="Introduction to Machine Learning" 
                 step2="Supervised Learning: Regression and Classification" 
                 step3="Unsupervised Learning: Clustering and Dimensionality Reduction"

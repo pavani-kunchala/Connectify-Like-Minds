@@ -1,25 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./quizStyle.css"; // Import styles
-
-const questionSets = {
-  basic: [
-    { question: "What does HTML stand for?", options: ["Hyper Text Markup Language", "High Tech Modern Language", "Hyperlink Text Manage Language", "None"], correctAnswer: "Hyper Text Markup Language" },
-    { question: "Which CSS property changes text color?", options: ["color", "font-style", "background", "text-color"], correctAnswer: "color" },
-    { question: "What is 2 + 2?", options: ["3", "4", "5", "6"], correctAnswer: "4" },
-  ],
-  medium: [
-    { question: "Which JavaScript keyword declares a constant variable?", options: ["var", "let", "const", "define"], correctAnswer: "const" },
-    { question: "Which is a JavaScript framework?", options: ["Python", "React", "CSS", "HTML"], correctAnswer: "React" },
-    { question: "What does API stand for?", options: ["Application Programming Interface", "Advanced Program Integration", "Automated Process Implementation", "None"], correctAnswer: "Application Programming Interface" },
-  ],
-  advanced: [
-    { question: "Which algorithm is used in React's reconciliation process?", options: ["Merge Sort", "Diffing Algorithm", "Recursion", "Greedy Algorithm"], correctAnswer: "Diffing Algorithm" },
-    { question: "What is the purpose of useEffect in React?", options: ["Handle side effects", "Manage state", "Style components", "Define routes"], correctAnswer: "Handle side effects" },
-    { question: "What is a closure in JavaScript?", options: ["A function inside another function", "A CSS property", "An API request", "A backend framework"], correctAnswer: "A function inside another function" },
-  ],
-};
+import { useParams } from "react-router-dom"; // Import useParams to get dynamic course
+import "./quizStyle.css"; 
+import questionSets from "../questionSets";
 
 const Quiz = () => {
+  const { course } = useParams(); // Get course from URL params
   const [difficulty, setDifficulty] = useState(null);
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -39,14 +24,16 @@ const Quiz = () => {
   }, [timeLeft, quizStarted, showResult]);
 
   const selectDifficulty = (level) => {
-    setDifficulty(level);
-    setQuestions(questionSets[level]);
-    setCurrentQuestion(0);
-    setScore(0);
-    setTimeLeft(60);
-    setShowResult(false);
-    setSelectedAnswer(null);
-    setQuizStarted(false);
+    if (questionSets[course] && questionSets[course][level]) {
+      setDifficulty(level);
+      setQuestions(questionSets[course][level]);
+      setCurrentQuestion(0);
+      setScore(0);
+      setTimeLeft(60);
+      setShowResult(false);
+      setSelectedAnswer(null);
+      setQuizStarted(false);
+    }
   };
 
   const startQuiz = () => {
@@ -84,7 +71,7 @@ const Quiz = () => {
 
   return (
     <div className="quiz-container">
-      <h1 className="quiz-title">REACT QUIZ APP</h1>
+      <h1 className="quiz-title">{course.toUpperCase()} QUIZ</h1>
 
       {!difficulty ? (
         <div className="difficulty-selection">
@@ -102,7 +89,7 @@ const Quiz = () => {
         <>
           {/* Progress Bar */}
           <div className="progress-bar">
-            <div className="progress" style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}></div>
+            <div className="progress" style={{ width: `${(currentQuestion / (questions.length - 1)) * 100}%` }}></div>
           </div>
 
           <div className="quiz-status">
@@ -122,26 +109,29 @@ const Quiz = () => {
                     ? option === questions[currentQuestion].correctAnswer
                       ? "correct"
                       : "wrong"
+                    : selectedAnswer && option === questions[currentQuestion].correctAnswer
+                    ? "correct"
                     : ""
                 }`}
                 onClick={() => handleAnswerClick(option)}
-                disabled={selectedAnswer !== null}
+                disabled={selectedAnswer !== null || timeLeft === 0}
               >
                 {option}
               </button>
             ))}
           </div>
- 
+
           {selectedAnswer && (
             <p className="quiz-feedback">
               {selectedAnswer === questions[currentQuestion].correctAnswer ? "✅ Correct!" : "❌ Wrong!"}
             </p>
           )}
 
-          <div className="quiz-controls">
-            <button className="next-button" onClick={nextQuestion} disabled={currentQuestion === questions.length - 1}>
+          <div className="quiz-controls">  
+            <button className="next-button" onClick={nextQuestion} disabled={selectedAnswer === null || currentQuestion === questions.length - 1}>
               Next
             </button>
+
             <button className="finish-button" onClick={finishQuiz}>
               Finish
             </button>

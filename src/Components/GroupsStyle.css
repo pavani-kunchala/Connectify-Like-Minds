@@ -1,0 +1,46 @@
+/* GroupsStyle.css */
+/*QuizSelection styling*/
+.groups-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #45f34e, #2dbcf5);
+    color: rgb(66, 20, 194);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .groups-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .groups-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .groups-container li {
+    margin: 10px 0;
+  }
+  
+  .groups-container a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(250, 2, 2);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .groups-container a:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+  }
+  

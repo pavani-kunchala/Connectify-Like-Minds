@@ -1,15 +1,18 @@
 import React from 'react';
 import Structure from '../roadmapstructure';
 import '../roadmapstyle.css';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 const ReactJSCourse = () => {
     return (
         <div>
-            <div className="fixed-button-container">
-                <button className="fixed-button"><Link to="/register">Join Group</Link></button>
-            </div>
+            {/* <div className="fixed-button-container">
+                            <button className="fixed-button"><Link to="/register">Join Group</Link></button>
+                        </div>
+            */}
+             
             <Structure 
+                room="reactjs"
                 step1="Introduction to ReactJS" 
                 step2="JSX, Components, and Props" 
                 step3="State and Lifecycle Methods"

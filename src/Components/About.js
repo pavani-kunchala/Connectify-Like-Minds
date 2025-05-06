@@ -4,8 +4,8 @@ import missionImage from '../Images/mission.jpg';
 import offerImage from '../Images/offer.jpg';
 import howItWorksImage from '../Images/how-it-works.jpg';
 import roadmapImage from '../Images/roadmap.jpg';
-import joinUsImage from '../Images/join-us.jpg'; // Adjust the file extension if necessary
-import { FaUsers, FaBullseye, FaRoad, FaSignInAlt } from 'react-icons/fa';
+import joinUsImage from '../Images/join-us.jpg';  
+
 const About = () => {
   return (
     <div className="about-container">
@@ -37,8 +37,8 @@ const About = () => {
               <li>Connect with people who share your interests</li>
               <li>Access personalized roadmaps to guide your learning journey</li>
               <li>Join study groups, forums, and discussion boards</li>
-              <li>Participate in events, workshops, and webinars</li>
-              <li>Share your progress and get feedback from the community</li>
+              <li>Participate in interactive Quizzes for knowledge Check</li>
+              <li>Take help from Smart AI Learning Assistant</li>
             </ul>
           </div>
         </div>
@@ -50,11 +50,12 @@ const About = () => {
             <h2>How It Works</h2>
             <p>Connectify makes it simple to connect with like-minded individuals:</p>
             <ol>
-              <li>Login into your profile</li>
+              <li>Explore into Connectify Like Minds</li>
               <li>Select your areas of interest</li>
-              <li>Get matched with others who share your passions</li>
               <li>Follow curated roadmaps to achieve your learning goals</li>
               <li>Engage with the community to share knowledge and experiences</li>
+              <li>Participate in interactive Quizzes for knowledge Check</li>
+              <li>Take help from Smart AI Learning Assistant</li>
             </ol>
           </div>
           <div className="image">

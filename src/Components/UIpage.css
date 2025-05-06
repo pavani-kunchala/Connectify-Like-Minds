@@ -5,7 +5,7 @@
     height: 100vh;
     background-color: white;
     color: #06172a; /* Default text color */
-    overflow: hidden; /* Prevent horizontal scroll */
+    overflow:auto; 
   }
   
   .ui-content {

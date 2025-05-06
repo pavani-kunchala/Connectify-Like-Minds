@@ -1,15 +1,18 @@
 import React from 'react';
 import Structure from '../roadmapstructure';
 import '../roadmapstyle.css';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 const DSACourse = () => {
     return (
         <div>
-            <div className="fixed-button-container">
-                <button className="fixed-button"><Link to="/register">Join Group</Link></button>
-            </div>
+           {/* <div className="fixed-button-container">
+                            <button className="fixed-button"><Link to="/register">Join Group</Link></button>
+                </div>
+            */}
+           
             <Structure 
+                room="dsa"
                 step1="Introduction to Data Structures and Algorithms" 
                 step2="Arrays and Linked Lists" 
                 step3="Stacks and Queues"

@@ -1,15 +1,18 @@
 import React from 'react';
 import Structure from '../roadmapstructure';
 import '../roadmapstyle.css';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 const Croadmap = () => {
     return (
         <div>
-            <div className="fixed-button-container">
-                <button className="fixed-button"><Link to="/register">Join Group</Link></button>
-            </div>
+            {/* <div className="fixed-button-container">
+                            <button className="fixed-button"><Link to="/register">Join Group</Link></button>
+                        </div>
+            */}
+             
             <Structure 
+                room="c"
                 step1="Introduction to C" 
                 step2="Variables and Data Types" 
                 step3="Control Flow (If-else, Switch)"

@@ -70,13 +70,19 @@
   border-top-right-radius: 0;
 }
 
-/* Bot message styling */
+ /* Bot message styling */
 .messager.bot {
   background-color: #f1f1f1;
   color: #333;
   align-self: flex-start;
   border-top-left-radius: 0;
+  white-space: pre-wrap; /* Ensures line breaks and spacing are preserved */
+  font-size: 16px;
+  text-align: left; /* Align text to start from the left */
 }
+ 
+
+
 
 /* Input area styling */
 .input-area {

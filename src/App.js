@@ -23,9 +23,13 @@ import Groupcombo from './Components/Groupcombo';
 import About from './Components/About';
 import Services from './Components/Services';
 import Chatting from './Components/Chatting';
-import ChatRoom from './Components/ChatRoom';  
+import Groups from './Components/Groups'; 
+import ChatRoom from './Components/ChatRoom'; 
 import Chatbot from './Components/Chatbot';
+import QuizSelection from './Components/QuizSelection';
 import Quiz from './Components/Quiz';
+
+//follows the path as small letters with no space between
 
 function App() {
   return (
@@ -38,27 +42,28 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/login" element={<Loginform />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/domain" element={<Domain />} />
+          <Route path="/courses" element={<Domain />} />
+          <Route path="/c" element={<Croadmap />} />
+          <Route path="/java" element={<Javacourse />} />
+          <Route path="/python" element={<Pythoncourse />} />
+          <Route path="/ai" element={<AICourse />} />
+          <Route path="/reactjs" element={<ReactJSCourse />} />
+          <Route path="/machinelearning" element={<MachineLearningcourse />} />
+          <Route path="/springboot" element={<SpringCourse />} />
+          <Route path="/cplusplus" element={<CPlusPlusCourse />} />
+          <Route path="/dsa" element={<DSACourse/>} />
+          <Route path="/nlp" element={<NLPCourse/>} />
+          <Route path="/devops" element={<DevOpsCourse/>} />
+          <Route path="/webdevelopment" element={<WebDevelopmentCourse />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/pythoncourse" element={<Pythoncourse />} />
-          <Route path="/Javacourse" element={<Javacourse />} />
-          <Route path="/AICourse" element={<AICourse />} />
-          <Route path="/ReactJSCourse" element={<ReactJSCourse />} />
-          <Route path="/MachineLearningcourse" element={<MachineLearningcourse />} />
-          <Route path="/croadmap" element={<Croadmap />} />
-          <Route path="/SpringCourse" element={<SpringCourse />} />
-          <Route path="/CPlusPlusCourse" element={<CPlusPlusCourse />} />
-          <Route path="/DSACourse" element={<DSACourse/>} />
-          <Route path="/NLPCourse" element={<NLPCourse/>} />
-          <Route path="/DevOpsCourse" element={<DevOpsCourse/>} />
-          <Route path="/WebDevelopmentCourse" element={<WebDevelopmentCourse />} />
           <Route path="/congratulations" element={<Congratulations />} />
-          <Route path="/groups" element={<Groupcombo />} />
+          <Route path="/groupscombo" element={<Groupcombo />} />
           <Route path="/chatting" element={<Chatting />} />
-          {/*<Route path="/chatting/:course" element={<Chatting/>}/>*/}
-          <Route path="/chatRoom" element={<ChatRoom />} /> 
+          <Route path="chatrooms" element={<Groups />} />
+          <Route path="/chatrooms/:room" element={<ChatRoom />} />
           <Route path="/chatbot" element={<Chatbot/>} />
-          <Route path="/quiz" element={<Quiz/>} />
+          <Route path="/quiz" element={<QuizSelection />} />  
+          <Route path="/quiz/:course" element={<Quiz />} />  
         </Routes>
       </Router>
     </div>

@@ -62,12 +62,15 @@ const UIpage = () => {
             <h3>Features</h3>
             <ul>
               <li className="animate-from-left">Connect minds with similar interests</li>
-              <li className="animate-from-right">Daily topics based on expertise level</li>
-              <li className="animate-from-left">Interactive chat application</li>
-              <li className="animate-from-right">Quizzes and learning resources</li>
+              <li className="animate-from-right">Structured Learning Roadmaps</li>
+              <li className="animate-from-left">Interactive Course-Specific Chatrooms</li>
+              <li className="animate-from-right">Smart AI Learning Assistant</li>
+              <li className="animate-from-left">Interactive Quizzes for Self-Assessment</li>
             </ul>
           </div>
-          <button onClick={handleLoginClick} className={`login-button ${isLoginExpanded ? 'expand' : ''}`}>Login</button>
+          {/*<button onClick={handleLoginClick} className={`login-button ${isLoginExpanded ? 'expand' : ''}`}>Login</button>*/}
+          <button className="login-button" onClick={() => navigate('/home')}>Explore</button>
+
         </div>
       </div>
     </div>

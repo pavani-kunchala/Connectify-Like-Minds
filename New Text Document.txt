@@ -1,0 +1,7 @@
+npm start
+node server.js
+
+
+ipconfig
+http://10.4.1.234:3000
+ChatRoom.js
