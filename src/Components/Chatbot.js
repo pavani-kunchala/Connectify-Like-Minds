@@ -6,7 +6,7 @@ import "./Chatbot.css"; // Import the CSS file
 const Chatbot = () => {
 
   // Directly set the API key here (hardcoded)
-  const apiKey = "AIzaSyCC6evMR3tqQTG3FjWQrWBaCEEQY6H3qew"; // Replace this with your Google API key
+  const apiKey = "AIzaSyCC6evMR3tqQTG3FjWQr"; // Replace this with your Google API key
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
